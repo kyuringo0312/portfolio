@@ -1,0 +1,9 @@
+allowBuilds:
+  esbuild: true
+  workerd: true
+
+# @astrojs/astro2tsx otherwise pulls the @emnapi/runtime 2.0 beta,
+# which crashes `astro check` against @emnapi/core 1.x.
+overrides:
+  '@emnapi/runtime': ^1.11.3
+  '@emnapi/core': ^1.11.3

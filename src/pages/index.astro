@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import { profile, works } from '../data/profile';
+
+const statusLabel = { live: '公開中', wip: '制作中', planned: '準備中' } as const;
+---
+
+<Base title={`${profile.name} — portfolio`} description={profile.tagline}>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">~/{profile.handle}</p>
+      <h1>{profile.name}</h1>
+      <p class="tagline">{profile.tagline}</p>
+    </header>
+
+    <section aria-labelledby="about">
+      <h2 id="about"><span>01</span>About</h2>
+      {profile.about.map((p) => <p>{p}</p>)}
+    </section>
+
+    <section aria-labelledby="works">
+      <h2 id="works"><span>02</span>Works</h2>
+      <ul class="works">
+        {
+          works.map((w) => (
+            <li class="work">
+              <div class="work-head">
+                <h3>{w.href ? <a href={w.href}>{w.title}</a> : w.title}</h3>
+                <span class={`status ${w.status}`}>{statusLabel[w.status]}</span>
+              </div>
+              <p>{w.description}</p>
+              <ul class="tags">
+                {w.tags.map((t) => <li>{t}</li>)}
+              </ul>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <section aria-labelledby="links">
+      <h2 id="links"><span>03</span>Links</h2>
+      <ul class="links">
+        {profile.links.map((l) => <li><a href={l.href} rel="me">{l.label} ↗</a></li>)}
+      </ul>
+    </section>
+  </main>
+
+  <footer>© {new Date().getFullYear()} {profile.name}</footer>
+</Base>
+
+<style>
+  main, footer {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  .hero { padding: 5rem 0 3rem; border-bottom: 1px solid var(--line); }
+  .eyebrow { font-family: var(--mono); color: var(--accent); margin: 0; font-size: 0.9rem; }
+  h1 {
+    font-size: clamp(2.6rem, 9vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin: 0.4rem 0 1rem;
+  }
+  .tagline { font-size: 1.15rem; color: var(--muted); margin: 0; }
+  section { padding: 2.5rem 0; border-bottom: 1px solid var(--line); }
+  h2 {
+    font-family: var(--mono);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0 0 1.2rem;
+  }
+  h2 span { color: var(--accent); margin-right: 0.8rem; }
+  .works { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
+  .work {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1.1rem 1.2rem;
+  }
+  .work-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; }
+  .work h3 { margin: 0; font-size: 1.1rem; }
+  .work p { margin: 0.4rem 0 0.8rem; color: var(--muted); }
+  .status { font-family: var(--mono); font-size: 0.75rem; white-space: nowrap; color: var(--muted); }
+  .status.live { color: var(--accent); }
+  .tags { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tags li {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.1rem 0.6rem;
+  }
+  .links { list-style: none; padding: 0; margin: 0; display: flex; gap: 1.5rem; }
+  footer { padding: 2rem 1rem 3rem; font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
+</style>

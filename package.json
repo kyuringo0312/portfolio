@@ -1,0 +1,30 @@
+{
+  "name": "portfolio",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "packageManager": "pnpm@12.18.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test:e2e": "playwright test",
+    "verify": "astro check && astro build && playwright test",
+    "deploy": "astro build && wrangler deploy",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^7.4.7"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@playwright/test": "^1.65.0",
+    "@types/node": "^26.6.6",
+    "typescript": "^6.0.3",
+    "wrangler": "^4.158.0"
+  }
+}
