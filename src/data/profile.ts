@@ -31,10 +31,12 @@ export const works: Work[] = [
     status: 'live',
   },
   {
-    title: 'Web アプリ（準備中）',
-    description: '次に公開する Web アプリをここに載せます。',
-    tags: ['Web'],
-    status: 'planned',
+    title: 'スタートページ',
+    description:
+      '時計・検索・タイマー・電卓・パスワード生成・日付の計算・ToDo・メモをひとつにまとめた、ブラウザのスタートページです。入力した内容は端末にだけ保存し、オフラインでも動きます。Claude Code の定期実行で、1 日 1 機能ずつ作りました。',
+    tags: ['Astro', 'TypeScript', 'PWA', 'Playwright', 'Cloudflare'],
+    href: 'https://startpage.auyuto-com.workers.dev',
+    status: 'live',
   },
   {
     title: 'Kaggle（準備中）',
