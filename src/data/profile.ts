@@ -31,10 +31,12 @@ export const works: Work[] = [
     status: 'live',
   },
   {
-    title: 'Web アプリ（準備中）',
-    description: '次に公開する Web アプリをここに載せます。',
-    tags: ['Web'],
-    status: 'planned',
+    title: 'スタートページ',
+    description:
+      '新しいタブで毎日開く、20〜30 代向けのスタートページです。検索・ショートカット・ToDo・メモを最初の画面にまとめました。ToDo とメモは声でも入力できます。「AI で優先度」を押すと、判定専用モデル Jev（Cloudflare Workers AI）が急ぎ・大事を判定して並べ替えます。データは端末にだけ保存します。',
+    tags: ['Astro', 'TypeScript', 'Cloudflare Workers AI', 'Web Speech API', 'Playwright'],
+    href: 'https://startpage.auyuto-com.workers.dev',
+    status: 'live',
   },
   {
     title: 'Kaggle（準備中）',
