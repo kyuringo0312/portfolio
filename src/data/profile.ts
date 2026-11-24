@@ -33,7 +33,7 @@ export const works: Work[] = [
   {
     title: 'スタートページ',
     description:
-      '新しいタブで毎日開く、20〜30 代向けのスタートページです。検索・ショートカット・ToDo・メモを最初の画面にまとめ、ToDo とメモは声でも入力できます。ポモドーロのタイマー付き。データは端末にだけ保存し、オフラインでも動きます。Claude Code の定期実行で機能を足し、最後にペルソナと Apple の HIG に沿って作り直しました。',
+      '新しいタブで毎日開く、20〜30 代向けのスタートページです。検索・ショートカット・ToDo・メモを最初の画面にまとめ、検索・ToDo・メモは声でも入力できます。ポモドーロのタイマー付き。データは端末にだけ保存し、オフラインでも動きます。Claude Code の定期実行で機能を足し、最後にペルソナと Apple の HIG に沿って作り直しました。',
     tags: ['Astro', 'TypeScript', 'PWA', 'Web Speech API', 'Playwright', 'Cloudflare'],
     href: 'https://startpage.auyuto-com.workers.dev',
     status: 'live',
